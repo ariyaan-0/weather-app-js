@@ -13,7 +13,7 @@ async function checkWeather(city){
         document.querySelector(".weather").style.display = "none";
     }
     var data = await response.json()
-    console.log(data);
+    // console.log(data);
 
     document.querySelector('.city').innerHTML = data.name;
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp)+"°C";
@@ -21,7 +21,7 @@ async function checkWeather(city){
     document.querySelector('.wind').innerHTML = `${data.wind.speed} km/h`;
 
     let icon = data.weather[0].main.toLowerCase();
-    console.log(icon);
+    // console.log(icon);
 
     weatherIcon.src = `images/${icon}.png`;
     document.querySelector(".error").style.display = "none";
@@ -33,7 +33,7 @@ async function checkWeather(city){
 checkWeather("dhaka");
 
 searchBtn.addEventListener('click', ()=>{
-    checkWeather(searchBox.value);
+    checkWeather(searchBox.value.trim());
 })
 
 
